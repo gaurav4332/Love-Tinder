@@ -8,3 +8,8 @@ node_modules
 uploads
 npm-debug.log
 yarn-error.log
+
+
+# Environment Variables
+# Sensitive environment variables
+.env                  
