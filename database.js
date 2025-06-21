@@ -1,7 +1,8 @@
+require("dotenv").config();
 const { MongoClient } = require("mongodb")
 
 // Connection URL
-const url = 
+const url = process.env.MONGO_URI
 
 const client = new MongoClient(url)
 
@@ -27,8 +28,8 @@ async function main() {
         gender: 'female',
     }
 
-    // const insertResult = await collection.insertMany([data]);
-    // console.log('Inserted documents =>', insertResult);
+    const insertResult = await collection.insertMany([data]);
+    console.log('Inserted documents =>', insertResult);
 
     // const findResult = await collection.find({}).toArray();
     // console.log('Found documents =>', findResult);
