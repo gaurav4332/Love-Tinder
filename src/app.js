@@ -1,26 +1,22 @@
 const express = require("express");
 const app = express();
 
+const { adminAuth, userAuth } = require('./middlewares/auth')
 
+app.use("/admin", adminAuth);
 
-// This can only handle the get api calls 
-app.get("/user",(req,res)=>{
-  res.send({firstName:"Gaurav",lastName:'Rajput'})
-})
-app.post("/user",(req,res)=>{
-  res.send('Data successfully save to the database ')
-})
-app.delete("/user",(req,res)=>{
-  res.send('Data successfully deleated to the database ')
+app.get('/admin/user', (req, res) => {
+    res.send('user Data fetched ')
 })
 
-app.use("/",(req,res)=>{
-    res.send('hello from the Dashboarddddddddddddddddddddddddddddddddddddd ')
-})
-app.use("/gaurav",(req,res)=>{
-    res.send('hello from the server ')
+app.get("/user/data", userAuth, (req, res) => {
+    res.send('user Data fetched ')
+
 })
 
-app.listen(3000, () => {
-  console.log("surver is successfully listing on port  3000");
-});
+
+
+
+app.listen(7777, () => {
+    console.log("server is successfully run on port 7777")
+})
