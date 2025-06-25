@@ -9,12 +9,21 @@ app.get('/admin/user', (req, res) => {
     res.send('user Data fetched ')
 })
 
+
+
 app.get("/user/data", userAuth, (req, res) => {
     res.send('user Data fetched ')
 
 })
 
+app.use("/", (err, req, res, next) => {
+    try {
 
+    } catch (error) {
+        res.status(500).send("Something is wrong .....")
+
+    }
+})
 
 
 app.listen(7777, () => {
