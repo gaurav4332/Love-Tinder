@@ -6,8 +6,7 @@ const User = require('./models/user')
 app.use(express.json())
 
 app.post('/signup', async (req, res) => {
-    console.log(req.body)
-
+    
     //Creating new instance of user model
     const user = new User(req?.body)
 
